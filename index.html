@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Odd Duck</title>
@@ -14,9 +15,9 @@
 
   <main>
     <section class="results">
-      <h1>
+      <h2>
         Results
-      </h1>
+      </h2>
 
       <div class="result-list">
         <ul id="result-list">
@@ -26,7 +27,7 @@
 
 
     <section class="images">
-      <h1>Images</h1>
+      <h2>Products</h2>
       <div class="img-container" id="img-selector">
         <img id="img_1" class="clickables show" src="img/unicorn.jpg" alt="unicorn">
         <img id="img_2" class="clickables show" src="img/bathroom.jpg" alt="bathroom">
@@ -47,6 +48,8 @@
         <img id="img_17" class="clickables hidden" src="img/dog-duck.jpg" alt="dog-duck">
         <img id="img_18" class="clickables hidden" src="img/water-can.jpg" alt="water-can">
         <img id="img_19" class="clickables hidden" src="img/sweep.png" alt="sweep">
+
+        <button class="hidden results-btn" id="results-btn">Show Results</button>
       </div>
     </section>
 
@@ -66,15 +69,17 @@
       </div>
     </section>
 
-    <section class="display">
-      <h2>Display</h2>
+    <section class="chart">
+      <h2>Chart</h2>
+      <canvas id="chart-canvas"></canvas>
     </section>
   </main>
 
   <footer>
-    <h3>Footer</h3>
+    <h3>&copy; 2024 Odd Duck Inc.</h3>
   </footer>
-  <script src="js/pictures.js"></script>
-  <script src="js/main.js"></script>
+  <!-- <script src="js/pictures2.js" type="module"></script>
+  <script src="js/main.js" type="module"></script> -->
+  <script src="js/no-repeat.js" type="module"></script>
 </body>
 </html>
