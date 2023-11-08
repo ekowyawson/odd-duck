@@ -61,7 +61,7 @@ header h1 {
 main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1.2fr;
+  grid-template-rows: .6fr 1fr 1.2fr;
   gap: 10px 10px;
   max-width: 95%;
   margin: 10px auto;
@@ -142,6 +142,11 @@ div.all-vis {
 /* TEXT CONTENT AREA */
 .text-content {
   text-align: justify;
+  padding: 15px;
+}
+
+.text-content li {
+  text-align: left;
   padding: 15px;
 }
 

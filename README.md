@@ -2,6 +2,10 @@
 
 ![WireFrame](wireframe.jpg)
 
+## Lighthouse Capture
+
+![Lighthouse](lighthouse.png)
+
 ## Problem Domain
 
 Odd Duck Product Co is trying to decide which project from their R&D department they should invest in next to sell.

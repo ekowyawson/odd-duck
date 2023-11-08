@@ -1,85 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js"></script>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Odd Duck</title>
-</head>
-<body>
-  <header>
-    <h1>Odd Duck Products</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js"></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Odd Duck</title>
+  </head>
 
-  <main>
-    <section class="results">
-      <h2>
-        Results
-      </h2>
+  <body>
+    <header>
+      <h1>Odd Duck Products</h1>
+    </header>
 
-      <div class="result-list">
-        <ul id="result-list">
-        </ul>
-      </div>
-    </section>
+    <main>
+      <section class="results">
+        <h2>Results</h2>
 
+        <div class="result-list">
+          <ul id="result-list"></ul>
+        </div>
+      </section>
 
-    <section class="images">
-      <h2>Products</h2>
-      <div class="img-container" id="img-selector">
-        <img id="img_1" class="clickables show" src="img/unicorn.jpg" alt="unicorn">
-        <img id="img_2" class="clickables show" src="img/bathroom.jpg" alt="bathroom">
-        <img id="img_3" class="clickables show" src="img/pet-sweep.jpg" alt="pet-sweep">
-        <img id="img_4" class="clickables hidden" src="img/banana.jpg" alt="banana">
-        <img id="img_5" class="clickables hidden" src="img/breakfast.jpg" alt="breakfast">
-        <img id="img_6" class="clickables hidden" src="img/boots.jpg" alt="boots">
-        <img id="img_7" class="clickables hidden" src="img/tauntaun.jpg" alt="tauntaun">
-        <img id="img_8" class="clickables hidden" src="img/dragon.jpg" alt="dragon">
-        <img id="img_9" class="clickables hidden" src="img/chair.jpg" alt="chair">
-        <img id="img_10" class="clickables hidden" src="img/bubblegum.jpg" alt="bubblegum">
-        <img id="img_11" class="clickables hidden" src="img/wine-glass.jpg" alt="wine-glass">
-        <img id="img_12" class="clickables hidden" src="img/shark.jpg" alt="shark">
-        <img id="img_13" class="clickables hidden" src="img/pen.jpg" alt="pen">
-        <img id="img_14" class="clickables hidden" src="img/cthulhu.jpg" alt="cthulhu">
-        <img id="img_15" class="clickables hidden" src="img/bag.jpg" alt="bag">
-        <img id="img_16" class="clickables hidden" src="img/scissors.jpg" alt="scissors">
-        <img id="img_17" class="clickables hidden" src="img/dog-duck.jpg" alt="dog-duck">
-        <img id="img_18" class="clickables hidden" src="img/water-can.jpg" alt="water-can">
-        <img id="img_19" class="clickables hidden" src="img/sweep.png" alt="sweep">
+      <section class="images">
+        <h2>Products</h2>
+        <div class="img-container" id="img-selector">
+          <img
+            id="img_1"
+            class="clickables show"
+            src="img/unicorn.jpg"
+            alt="unicorn"
+          />
+          <img
+            id="img_2"
+            class="clickables show"
+            src="img/bathroom.jpg"
+            alt="bathroom"
+          />
+          <img
+            id="img_3"
+            class="clickables show"
+            src="img/pet-sweep.jpg"
+            alt="pet-sweep"
+          />
+          <img
+            id="img_4"
+            class="clickables hidden"
+            src="img/banana.jpg"
+            alt="banana"
+          />
+          <img
+            id="img_5"
+            class="clickables hidden"
+            src="img/breakfast.jpg"
+            alt="breakfast"
+          />
+          <img
+            id="img_6"
+            class="clickables hidden"
+            src="img/boots.jpg"
+            alt="boots"
+          />
+          <img
+            id="img_7"
+            class="clickables hidden"
+            src="img/tauntaun.jpg"
+            alt="tauntaun"
+          />
+          <img
+            id="img_8"
+            class="clickables hidden"
+            src="img/dragon.jpg"
+            alt="dragon"
+          />
+          <img
+            id="img_9"
+            class="clickables hidden"
+            src="img/chair.jpg"
+            alt="chair"
+          />
+          <img
+            id="img_10"
+            class="clickables hidden"
+            src="img/bubblegum.jpg"
+            alt="bubblegum"
+          />
+          <img
+            id="img_11"
+            class="clickables hidden"
+            src="img/wine-glass.jpg"
+            alt="wine-glass"
+          />
+          <img
+            id="img_12"
+            class="clickables hidden"
+            src="img/shark.jpg"
+            alt="shark"
+          />
+          <img
+            id="img_13"
+            class="clickables hidden"
+            src="img/pen.jpg"
+            alt="pen"
+          />
+          <img
+            id="img_14"
+            class="clickables hidden"
+            src="img/cthulhu.jpg"
+            alt="cthulhu"
+          />
+          <img
+            id="img_15"
+            class="clickables hidden"
+            src="img/bag.jpg"
+            alt="bag"
+          />
+          <img
+            id="img_16"
+            class="clickables hidden"
+            src="img/scissors.jpg"
+            alt="scissors"
+          />
+          <img
+            id="img_17"
+            class="clickables hidden"
+            src="img/dog-duck.jpg"
+            alt="dog-duck"
+          />
+          <img
+            id="img_18"
+            class="clickables hidden"
+            src="img/water-can.jpg"
+            alt="water-can"
+          />
+          <img
+            id="img_19"
+            class="clickables hidden"
+            src="img/sweep.png"
+            alt="sweep"
+          />
 
-        <button class="hidden results-btn" id="results-btn">Show Results</button>
-      </div>
-    </section>
+          <button class="hidden results-btn" id="results-btn">
+            Show Results
+          </button>
+        </div>
+      </section>
 
-    <section class="text">
-      <h2>Text</h2>
-      <div class="text-content">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quae nobis, doloremque fuga maiores modi accusamus provident dolorum consectetur
-          eligendi laboriosam in debitis, harum dolor incidunt porro illo? Veritatis, optio. Vel, voluptatibus repellendus ex perferendis magnam quos nobis
-          reprehenderit voluptas aspernatur, fuga, error debitis soluta porro consequuntur rerum? Aliquid laborum eum temporibus, vero dolor tempore voluptatibus
-          error laboriosam tempora sequi. Sequi suscipit voluptates itaque asperiores, harum aperiam a placeat perferendis deserunt quam quo enim quos ex voluptatibus
-          nisi nesciunt voluptate fugit distinctio labore molestiae quasi rerum dolor? Voluptates, asperiores aliquam. Debitis iusto a suscipit, odio, tempore atque
-          cum quasi voluptatibus consequuntur provident autem quaerat in aspernatur veniam quia quisquam ullam voluptates reiciendis ducimus? Laborum praesentium
-          temporibus laudantium ut, quae quia. Aperiam possimus doloremque hic ipsum officiis! Veritatis repudiandae quasi error rem, ratione consequatur, ipsum quia,
-          aperiam reiciendis odit labore dolorem incidunt voluptas vero nesciunt cumque harum quod maiores ad id.
-        </p>
-      </div>
-    </section>
+      <section class="text">
+        <h2>Welcome to the Picture Voting Web App!</h2>
+        <div class="text-content">
+          <h3>Here is how to use this web app:</h3>
+          <h3>Step 1: Viewing Products</h3>
+          <li>
+            When you open the web app, you'll see products displayed on the
+            screen. These products are up for voting.
+          </li>
+          <h3>Step 2: Voting for Products</h3>
+          <li>
+            Click on any picture you like to vote for it. When you click, the
+            app will keep track of your vote.
+          </li>
+          <h3>Step 3: Maximum Votes</h3>
+          <li>
+            You can vote a maximum of 20 times, so make your choices wisely.
+            You'll see how many votes you've used as you vote.
+          </li>
+          <h3>Step 4: Viewing Results</h3>
+          <li>
+            After reaching the maximum number of votes, a button with the text
+            "View Results" will appear at the bottom.
+          </li>
+          <h3>Step 5: Checking Voting Results</h3>
+          <li>
+            Click the "View Results" button to see the results of the voting.
+            You'll see which products got the most votes.
+          </li>
+          <h3>Step 6: Understanding the Charts</h3>
+          <li>
+            The results are shown in charts. You'll see bar charts with
+            different colors.
+          </li>
+          <li>
+            These colors represent votes and views. The taller
+            the bar, the more votes that picture received.
+          </li>
+          <h3>Step 7: Exploring More</h3>
+          <li>
+            You can also click on products with a specific ID. This doesn't
+            count as a vote but helps you explore the app.
+          </li>
+          <h3>Step 8: Enjoy Voting</h3>
+          <li>
+            Keep voting, enjoy the products, and when you're ready, click "View
+            Results" to see which products were the most popular.
+          </li>
+          <h3>Step 9: Refresh the Page</h3>
+          <li>
+            If you want to start over or vote again, simply refresh the web
+            page. Enjoy using the Picture Voting Web App!
+          </li>
+        </div>
+      </section>
 
-    <section class="chart">
-      <h2>Chart</h2>
-      <canvas id="chart-canvas"></canvas>
-    </section>
-  </main>
+      <section class="chart">
+        <h2>Chart</h2>
+        <canvas id="chart-canvas"></canvas>
+      </section>
+    </main>
 
-  <footer>
-    <h3>&copy; 2024 Odd Duck Inc.</h3>
-  </footer>
-  <!-- <script src="js/pictures2.js" type="module"></script>
+    <footer>
+      <h3>&copy; 2024 Odd Duck Inc.</h3>
+    </footer>
+    <!-- <script src="js/pictures2.js" type="module"></script>
   <script src="js/main.js" type="module"></script> -->
-  <script src="js/no-repeat.js" type="module"></script>
-</body>
+    <script src="js/no-repeat.js" type="module"></script>
+  </body>
 </html>
