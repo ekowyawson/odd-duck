@@ -181,7 +181,7 @@ ul li {
   display: none;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .results-btn {
   font-size: x-large;
   font-family: 'Playfair Display', serif;
@@ -193,6 +193,21 @@ ul li {
   border-radius: 10px;
   box-shadow: 5px 5px 3px rgb(197, 194, 193);
   grid-area: 2 / 2 / 2 / 2;
+}
+
+.clear-btn {
+  width: 105px;
+  height: 105px;
+  font-size: x-large;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  background-color: rgb(228, 166, 159);
+  color: black;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px rgb(197, 194, 193);
+  cursor: pointer;
 }
 
 /* FORM */
