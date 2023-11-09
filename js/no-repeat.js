@@ -9,7 +9,7 @@ let state = {
 };
 
 /* PICTURES OBJECT */
-const pictures = [
+const picturesObj = [
   { id: 1, name: 'unicorn', filePath: 'img/unicorn.jpg', views: 0, votes: 0 },
   { id: 2, name: 'bathroom', filePath: 'img/bathroom.jpg', views: 0, votes: 0 },
   { id: 3, name: 'pet-sweep', filePath: 'img/pet-sweep.jpg', views: 0, votes: 0 },
@@ -31,6 +31,7 @@ const pictures = [
   { id: 19, name: 'sweep', filePath: 'img/sweep.png', views: 0, votes: 0 },
 ];
 
+/* CLASS / OLD CLASS */
 function Picture(id, name, filePath) {
   this.id = id;
   this.name = name;
@@ -39,10 +40,17 @@ function Picture(id, name, filePath) {
   this.votes = 0;
 }
 
+/* LOCAL STORAGE LOGIC */
+localStorage.setItem('pictures', JSON.stringify(picturesObj));
+let getStoredPictures = localStorage.getItem('pictures');
+let pictures = getStoredPictures ? JSON.parse(getStoredPictures) : picturesObj;
+
+/* GLOBAL VARS */
 const pictureObjects = pictures.map(picture => new Picture(picture.id, picture.name, picture.filePath));
 const imgElement = document.querySelectorAll('.clickables');
 const displayedPictures = [];
 
+/* FUNCTIONS / METHODS */
 function getRandomPicture() {
   let availablePictures = pictureObjects.filter(
     picture => !displayedPictures.includes(picture)
