@@ -1,7 +1,6 @@
 'use strict';
 
 function cl(input) { console.log(input); }
-
 /* THE GLOBAL "STATE" OF THE APPLICATION */
 let state = {
   numClicksAllowed: 20,
@@ -9,7 +8,7 @@ let state = {
 };
 
 /* PICTURES OBJECT */
-const picturesObj = [
+let pictures = [
   { id: 1, name: 'unicorn', filePath: 'img/unicorn.jpg', views: 0, votes: 0 },
   { id: 2, name: 'bathroom', filePath: 'img/bathroom.jpg', views: 0, votes: 0 },
   { id: 3, name: 'pet-sweep', filePath: 'img/pet-sweep.jpg', views: 0, votes: 0 },
@@ -32,21 +31,28 @@ const picturesObj = [
 ];
 
 /* CLASS / OLD CLASS */
-function Picture(id, name, filePath) {
+function Picture(id, name, filePath, views = 0, votes = 0) {
   this.id = id;
   this.name = name;
   this.filePath = filePath;
-  this.views = 0;
-  this.votes = 0;
+  this.views = views;
+  this.votes = votes;
 }
 
 /* LOCAL STORAGE LOGIC */
-localStorage.setItem('pictures', JSON.stringify(picturesObj));
 let getStoredPictures = localStorage.getItem('pictures');
-let pictures = getStoredPictures ? JSON.parse(getStoredPictures) : picturesObj;
+if(getStoredPictures){
+  pictures = JSON.parse(getStoredPictures);
+}
 
 /* GLOBAL VARS */
-const pictureObjects = pictures.map(picture => new Picture(picture.id, picture.name, picture.filePath));
+const pictureObjects = pictures.map(picture => new Picture(
+  picture.id,
+  picture.name,
+  picture.filePath,
+  picture.views,
+  picture.votes
+));
 const imgElement = document.querySelectorAll('.clickables');
 const displayedPictures = [];
 
@@ -59,7 +65,6 @@ function getRandomPicture() {
   if (availablePictures.length === 0) {
     // Reset displayedPictures array if all pictures have been shown
     displayedPictures.length = 0;
-
     availablePictures = pictureObjects.filter(
       picture => !displayedPictures.includes(picture)
     );
@@ -87,6 +92,7 @@ function handleClick(e) {
   const getNumClicks = pictureObjects.find(
     ({ name }) => name === altText
   );
+
   getNumClicks.votes++;
   e.target.dataset.votes = getNumClicks.votes;
 
@@ -99,14 +105,17 @@ function handleClick(e) {
 
 function checkState() {
   if (state.maxClicksReached >= state.numClicksAllowed) {
+    const resultsList = document.getElementById('result-list');
     const resultsBtn = document.getElementById('results-btn');
+    const clearBtn = document.getElementById('clear-btn');
     const imgContainer = document.getElementById('img-selector');
+    // Store object with new results in local storage
+    localStorage.setItem('pictures', JSON.stringify(pictureObjects));
 
     cl('All pictures have been viewed this round!');
     // Remove event listeners
     imgElement.forEach(img => {
       img.removeEventListener('click', handleClick);
-
       if(!img.classList.contains('hidden')) {
         img.classList.add('hidden');
       }
@@ -116,16 +125,20 @@ function checkState() {
     resultsBtn.addEventListener('click', (e) => {
       e.preventDefault();
       renderResults(pictureObjects);
-
       imgContainer.classList.replace('img-container', 'all-vis');
-
+      // Un-hide pictures
       imgElement.forEach(el => {
         el.classList.remove('hidden');
       });
-
+      // Hide results button
       resultsBtn.classList.add('hidden');
+      clearBtn.classList.remove('hidden');
     });
 
+    clearBtn.addEventListener('click', (e) => {
+      localStorage.removeItem('pictures');
+      location.reload();
+    });
   } else {
     displayRandomPictures(); // Display new pictures after a click
   }
@@ -180,14 +193,17 @@ function renderResults(imagesArr) {
     let li = document.createElement('li');
     let subLiVotes = document.createElement('li');
     let subLiViews = document.createElement('li');
+
     li.textContent = `${sorted.name}`;
     subLiVotes.textContent = `Votes: ${sorted.votes}`;
     subLiViews.textContent = `Views: ${sorted.views}`;
+
     li.classList.add('result-li-name');
     subLiVotes.classList.add('result-li-votes');
     subLiViews.classList.add('result-li-views');
+
     li.appendChild(subLiVotes);
-    li.appendChild(subLiViews);
+    //li.appendChild(subLiViews);
     resultsList.appendChild(li);
   });
 
