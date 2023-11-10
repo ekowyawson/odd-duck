@@ -58,7 +58,27 @@ const pictureObjects = pictures.map(picture => new Picture(
 cl(pictureObjects);
 
 const imgElement = document.querySelectorAll('.clickables');
+const getDisplayArea = document.getElementById('display');
 const displayedPictures = [];
+
+/* COSMETIC FUNCTIONS */
+imgElement.forEach(img => {
+  img.addEventListener('mouseover', (e) => {
+    getDisplayArea.textContent = capitalize(img.alt);
+  });
+
+  img.addEventListener('mouseout', (e) => {
+    getDisplayArea.textContent = '';
+  });
+});
+
+function capitalize(word) {
+  const capitalized =
+    word.charAt(0).toUpperCase()
+    + word.slice(1);
+
+  return(capitalized);
+}
 
 /* FUNCTIONS / METHODS */
 function getRandomPicture() {
@@ -86,6 +106,7 @@ function displayRandomPictures() {
     displayedPictures.push(picture);
     imgElement.src = picture.filePath;
     imgElement.alt = picture.name;
+    imgElement.title = picture.name;
     imgElement.dataset.pictureId = picture.id;
   }
 }
@@ -203,17 +224,15 @@ function renderResults(imagesArr) {
 
     li.classList.add('result-li-name');
     subLiVotes.classList.add('result-li-votes');
-    //subLiViews.classList.add('result-li-views');
 
     li.appendChild(subLiVotes);
-    //li.appendChild(subLiViews);
     resultsList.appendChild(li);
   });
 
   createChart(imagesArr);
 }
 
-
+/* INIT */
 imgElement.forEach(img => {
   img.addEventListener('click', handleClick);
 });
