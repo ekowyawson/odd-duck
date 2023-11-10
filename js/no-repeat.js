@@ -203,7 +203,7 @@ function renderResults(imagesArr) {
 
     li.classList.add('result-li-name');
     subLiVotes.classList.add('result-li-votes');
-    subLiViews.classList.add('result-li-views');
+    //subLiViews.classList.add('result-li-views');
 
     li.appendChild(subLiVotes);
     //li.appendChild(subLiViews);
