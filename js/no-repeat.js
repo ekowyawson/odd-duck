@@ -41,6 +41,7 @@ function Picture(id, name, filePath, views = 0, votes = 0) {
 
 /* LOCAL STORAGE LOGIC */
 let getStoredPictures = localStorage.getItem('pictures');
+
 if(getStoredPictures){
   pictures = JSON.parse(getStoredPictures);
 }
@@ -53,6 +54,9 @@ const pictureObjects = pictures.map(picture => new Picture(
   picture.views,
   picture.votes
 ));
+
+cl(pictureObjects);
+
 const imgElement = document.querySelectorAll('.clickables');
 const displayedPictures = [];
 
@@ -105,7 +109,6 @@ function handleClick(e) {
 
 function checkState() {
   if (state.maxClicksReached >= state.numClicksAllowed) {
-    const resultsList = document.getElementById('result-list');
     const resultsBtn = document.getElementById('results-btn');
     const clearBtn = document.getElementById('clear-btn');
     const imgContainer = document.getElementById('img-selector');
@@ -200,7 +203,7 @@ function renderResults(imagesArr) {
 
     li.classList.add('result-li-name');
     subLiVotes.classList.add('result-li-votes');
-    subLiViews.classList.add('result-li-views');
+    //subLiViews.classList.add('result-li-views');
 
     li.appendChild(subLiVotes);
     //li.appendChild(subLiViews);
